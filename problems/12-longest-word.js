@@ -16,16 +16,37 @@ console.log(longestWord('')); // ''
 
 */
 
-let longestWord = function(sentence) {
-    // Your code here
-};
+// let longestWord = function (sentence) {
+//   let sentArr = sentence.split(" ");
+//   let longestWord = "";
+
+//   sentArr.forEach(function (word) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   });
+
+//   return longestWord;
+// };
 
 // Your code here
+let longestWord = function (sentence) {
+  let sentArr = sentence.split(" ");
+  let longestWord = "";
+
+  sentArr.map(function (word) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }, "");
+
+  return longestWord;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-    module.exports = longestWord;
+  module.exports = longestWord;
 } catch (e) {
-    module.exports = null;
-}
+  module.exports = null;
+}

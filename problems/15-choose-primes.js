@@ -18,13 +18,30 @@ console.log(choosePrimes([5, 6, 4, 11, 2017])); // [ 5, 11, 2017 ]
 
 */
 
-let isPrime = function(num) {
-    // Your code here
-}
+let isPrime = function (num) {
+  let prime = true;
+  if (num < 2) {
+    prime = false;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      prime = false;
+    }
+  }
 
-let choosePrimes = function(nums) {
-    // Your code here
-}
+  return prime;
+};
+
+let choosePrimes = function (nums) {
+  let primes = [];
+  nums.map(function (num) {
+    if (isPrime(num)) {
+      primes.push(num);
+    }
+  });
+
+  return primes;
+};
 
 // alternative solution using Array.filter
 // let choosePrimes = function(nums) {
@@ -34,7 +51,7 @@ let choosePrimes = function(nums) {
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-    module.exports = choosePrimes;
+  module.exports = choosePrimes;
 } catch (e) {
-    module.exports = null;
-}
+  module.exports = null;
+}

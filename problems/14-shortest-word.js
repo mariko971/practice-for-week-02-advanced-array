@@ -14,11 +14,32 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 
 */
 
-let shortestWord = function(sentence) {
-  // Your code here
-};
+// let shortestWord = function (sentence) {
+//   let sentArr = sentence.split(" ");
+//   let shortest = sentArr[0];
+
+//   sentArr.map(function (word) {
+//     if (word.length <= shortest.length) {
+//       shortest = word;
+//     }
+//   });
+
+//   return shortest;
+// };
 
 // Your code here
+let shortestWord = function (sentence) {
+  let sentArr = sentence.split(" ");
+  let shortest = sentArr[0];
+
+  sentArr.forEach(function (word) {
+    if (word.length <= shortest.length) {
+      shortest = word;
+    }
+  });
+
+  return shortest;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
@@ -26,4 +47,4 @@ try {
   module.exports = shortestWord;
 } catch (e) {
   module.exports = null;
-}
+}

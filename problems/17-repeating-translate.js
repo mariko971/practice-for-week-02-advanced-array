@@ -27,20 +27,48 @@ console.log(repeatingTranslate("pasta is my favorite dish"));   // "pastapasta i
 console.log(repeatingTranslate("her family flew to France"));   // "herer familyily flewew to FranceFrance"
 
 */
-
-let repeatingTranslate = function(sentence) {
-    // Your code here
+// Helper function to repeat letters if word doesnt end with a vowel.
+let repLetters = function (word) {
+  let index = null;
+  let vowels = "aeiou";
+  for (let i = word.length - 1; i >= 0; i--) {
+    if (vowels.includes(word[i])) {
+      index = i;
+      break;
+    }
+  }
+  return word + word.slice(index);
 };
 
+let repeatingTranslate = function (sentence) {
+  let sentArr = sentence.split(" ");
+  let newSent = [];
 
-let translateWord = function(word) {
-    // Your code here
+  sentArr.forEach(function (word) {
+    if (word.length < 3) {
+      newSent.push(word);
+    } else {
+      newSent.push(translateWord(word));
+    }
+  });
+
+  return newSent.join(" ");
+};
+
+let translateWord = function (word) {
+  let wordLength = word.length;
+  let vowels = "aeiou";
+  if (vowels.includes(word[wordLength - 1])) {
+    return word + word;
+  } else {
+    return repLetters(word);
+  }
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-    module.exports = repeatingTranslate;
+  module.exports = repeatingTranslate;
 } catch (e) {
-    module.exports = null;
-}
+  module.exports = null;
+}
